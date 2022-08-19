@@ -5,6 +5,8 @@ import com.dbhw.tema7.repository.ShoppingCartRepository;
 import com.dbhw.tema7.service.ShoppingCartService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -15,12 +17,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 @WebMvcTest(ShoppingCartService.class)
 public class ShoppingCartServiceTest {
     @MockBean
     ShoppingCartRepository shoppingCartRepository;
 
-    @Autowired
-    private MockMvc mockMvc;
+    @InjectMocks
+    ShoppingCartService shoppingCartService;
 }
