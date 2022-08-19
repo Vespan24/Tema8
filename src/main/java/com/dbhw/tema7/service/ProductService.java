@@ -13,14 +13,14 @@ import java.util.List;
 public class ProductService {
     final ProductRepository productRepository;
 
-    public void addProduct(String name, String identificationCode, ProductType type, Integer stock){
+    public Product addProduct(String name, String identificationCode, ProductType type, Integer stock){
         Product product= new Product();
         product.setDeleted(false);
         product.setName(name);
         product.setIdentificationCode(identificationCode);
         product.setStock(stock);
         product.setType(type);
-        productRepository.save(product);
+        return productRepository.save(product);
     }
 
     public void softDeleteProduct(String identificationCode){

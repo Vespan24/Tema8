@@ -14,8 +14,8 @@ public class ProductController {
     ProductService productService;
 
     @PostMapping("/products/addproduct/")
-    public void addProduct(@RequestParam String name, @RequestParam String identificationCode, @RequestParam ProductType type, @RequestParam Integer stock){
-        productService.addProduct(name, identificationCode, type, stock);
+    public Product addProduct(@RequestParam String name, @RequestParam String identificationCode, @RequestParam ProductType type, @RequestParam Integer stock){
+        return productService.addProduct(name, identificationCode, type, stock);
     }
 
     @DeleteMapping("/products/softdelete/{identificationCode}")
